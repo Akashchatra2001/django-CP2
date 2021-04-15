@@ -1,0 +1,23 @@
+{% extends 'courses/layout.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% block content %}
+	<div class="col-md-9">
+		<div class="card card-body">
+
+			<form method="POST" action="" enctype="multipart/form-data">
+				{% csrf_token %}
+				{% for field in form.visible_fields %}
+                           <div class="form-group">
+                               {{ field.label_tag }}
+                                  {% render_field field class="form-control" %}
+                                    {% for error in field.errors %}
+                                      <span style="color:red">{{ error }}</span>
+                                    {% endfor %}
+                         {% endfor %}
+                             <br><input class="btn btn-primary" type="submit" name="Book Trial">
+                           </div>
+			</form>
+		</div>
+	</div>
+{% endblock %}

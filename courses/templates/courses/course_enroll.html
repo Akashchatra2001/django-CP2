@@ -1,0 +1,26 @@
+{% extends "courses/layout.html" %}
+{% load static %}
+{% load widget_tweaks %}
+{% block content %}
+<h2>Course Enrollment Form</h2>
+<div class="row">
+<div class="form-group">
+                    <form action="{% url 'course-enroll' %}" method="POST" >
+                      {% csrf_token %}
+                         {% for field in form.visible_fields %}
+                           <div class="form-group">
+                               {{ field.label_tag }}
+                                  {% render_field field class="form-control" %}
+                                    {% for error in field.errors %}
+                                      <span style="color:red">{{ error }}</span>
+                                    {% endfor %}
+                         {% endfor %}
+                             <br><input type="submit" value="Update" class="btn btn-block btn-primary">
+                           </div>
+                    </form>
+                 </div>
+</div>
+<div>
+
+</div>
+{% endblock %}

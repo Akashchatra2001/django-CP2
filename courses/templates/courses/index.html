@@ -1,0 +1,33 @@
+{% extends "courses/layout.html" %}
+
+{% block content %}
+
+<div class="jumbotron">
+    <h1>CJ Driving School</h1>
+    <p class="lead">Welcome you to the journey of learning driving!
+        We provide quality training and various course.
+        To know more about our courses, book your trial class now.</p>
+    <p><a class="btn btn-default" href="{% url 'book_trial' %}">Book trial class &raquo;</a></p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Getting started</h2>
+        <p>
+            Create you account and then register or enroll in your interested course
+        </p>
+        <p><a class="btn btn-default" href="{% url 'register' %}">Register</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Get more details</h2>
+        <p>To know about our courses, fees adn the number of days offered for the course click on this button</p>
+        <p><a class="btn btn-default" href="{% url 'courses' %}">Our courses &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Already have an account!</h2>
+        <p>Then,,why wait? Login & Get started with registering in one the courses</p>
+        <p><a class="btn btn-default" href="{% url 'login' %}">login &raquo;</a></p>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "courses/user.html" %}
+{% load static %}
+{% block content %}
+<br>
+    <div class="row">
+			<div class="col-md">
+				<div class="card card-body">
+					<h5>Courses</h5>
+				</div>
+				<div class="card card-body">
+					<table class="table">
+						<tr>
+							<th>Instructor</th>
+							<th>Student | Course | Time Preference</th>
+							<th>Allocated Time</th>
+						</tr>
+
+						{% for i in schedule %}
+							<tr>
+								<td>{{i.instructor}}</td>
+								<td>{{i.student}}</td>
+								<td>{{i.time_allocated}}</td>
+
+							</tr>
+						{% endfor %}
+					</table>
+				</div>
+            </div>
+
+    </div>
+
+{% endblock %}

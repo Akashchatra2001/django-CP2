@@ -1,0 +1,38 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <value>
+          <list size="1">
+            <item index="0" class="java.lang.String" itemvalue="psycopg2" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="admin.learn_djangos" />
+          <option value="views.index" />
+          <option value="views.topics" />
+          <option value="views.topic" />
+          <option value="views.rope" />
+          <option value="views.topic.entry_set" />
+          <option value="tasks.models.Task.objects" />
+          <option value="tasks.views.tasks" />
+          <option value="accounts.models.Product.objects" />
+          <option value="accounts.models.Order.objects" />
+          <option value="accounts.models.Customer.objects" />
+          <option value="accounts.views.pk_test" />
+          <option value="django.core.urlresolvers" />
+          <option value="decouple.config" />
+          <option value="courses.views.OwnerEditMixin.request" />
+          <option value="courses.views.OwnerMixin.request" />
+          <option value="object.get_queryset" />
+          <option value="object.form_valid" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>

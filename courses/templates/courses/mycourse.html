@@ -1,0 +1,31 @@
+{% extends "courses/user.html" %}
+{% load static %}
+{% block content %}
+<br>
+    <div class="row">
+			<div class="col-md">
+				<div class="card card-body">
+					<h5>Courses</h5>
+				</div>
+				<div class="card card-body">
+					<table class="table">
+						<tr>
+							<th>Course enrolled</th>
+							<th></th>
+							<th>Course Status</th>
+                        </tr>
+                        {% for i in mycourse %}
+                        <tr>
+								<td>{{i.course}}</td>
+								{% endfor %}
+								<td><a class="btn btn-default" href="{% url 'attendance' %}">Attendance</a></td>
+								<td>{% for j in report %} {{j.course_status}} {% endfor %}</td>
+                        </tr>
+					</table>
+                </div>
+            </div>
+
+    </div>
+
+{% endblock %}
+
