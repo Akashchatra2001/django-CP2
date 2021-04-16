@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+<head>
+   <style>
+      .center {
+      position: absolute;
+      text-align: center;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      }
+   </style>
+</head>
+ <div class="center">
+     <form action="{% url 'success' %}" method="POST">
+{% csrf_token %}
+<script src="https://checkout.razorpay.com/v1/checkout.js"
+    data-key="rzp_test_REJekObXco1vA3"
+    data-amount="50000"
+    data-currency="INR"
+    data-order_id="{{payment.id}}"
+    data-name="CJ driving school">
+</script>
+      </form>
+</div>
+{% endblock content %}

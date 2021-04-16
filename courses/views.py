@@ -8,6 +8,7 @@ from django.views.generic import CreateView, UpdateView
 from django.contrib.auth.decorators import login_required
 from .forms import StudentForm, StudentprofileForm, EditProfileForm, courseenrollForm, BookTrialForm
 from .models import *
+import razorpay
 
 
 def home(request):
@@ -126,7 +127,20 @@ class CourseEnrollView(CreateView):
         enroll = form.save(commit=False)
         enroll.student = Student.objects.get(user= self.request.user)
         enroll.save()
-        return redirect('user')
+        return redirect('payment')
+        
+
+def payment(request):
+    if request.method == "POST":
+        amount = 500
+        order_currency = 'INR'
+        client = razorpay.Client(
+            auth=('rzp_test_REJekObXco1vA3', 'yIC0YxPiie1cBRyamVCJWRd9'))
+        payment = client.order.create({'amount': amount, 'currency':'INR'})
+    return render(request, 'courses/payment.html' )
+
+def success(request):
+    return render(request, 'courses/success.html' )
 
 
 @login_required(login_url='login')
