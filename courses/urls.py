@@ -1,5 +1,5 @@
 from datetime import datetime
-
+from django.contrib import admin
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth import views as auth_views
 from django.contrib.auth.decorators import login_required
@@ -9,6 +9,8 @@ from .views import *
 from courses import views, forms
 from .forms import MySetPasswordForm, MyPasswordResetForm
 
+
+admin.site.site_header = 'CJ Driving School'
 urlpatterns = [
     path('', views.home, name='home'),
     path('contact/', views.contact, name='contact'),

@@ -19,6 +19,13 @@
                   <h2>Register</h2>
                 </div>
                 <div class="card-body">
+                    {% if messages %}
+     {% for message in messages %}
+         <div class="text-center alert alert-{{ message.tags }}">
+             {{ message|safe }}
+         </div>
+     {% endfor %}
+ {% endif %}
                     <form action="{% url 'register' %}" method="POST" novalidate>
                       {% csrf_token %}
                          {% for field in form.visible_fields %}

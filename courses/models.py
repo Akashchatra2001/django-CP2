@@ -46,7 +46,7 @@ class Student(models.Model):
         ('F', 'Female'),
     ]
     gender = models.CharField(choices=GENDER_CHOICES, default=None, blank=True, max_length=2, null=True)
-    date_of_birth = models.DateField(validators=[validate_age], default=None, blank=True, null=True)
+    date_of_birth = models.DateField(validators=[validate_age], default=None, blank=True, null=True, help_text='the date format is: year-month-date')
     aadhar_card = models.FileField(upload_to='aadhar/', default=None, blank=True, null=True)
     profile_picture = models.ImageField(upload_to='profile/', default='profile/profile.jpg', blank=True, null=True)
     address = models.TextField(default=None, blank=True, null=True)
@@ -64,7 +64,7 @@ class Instructor(models.Model):
 
 class Course_enrollment(models.Model):
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
-    course = models.ForeignKey(Course, on_delete=models.CASCADE)
+    course = models.ForeignKey(Course, on_delete=models.CASCADE, help_text='Enroll in another course after completion of your first course')
     TIME_CHOICES = [
         ('Morning batch (7:30 to 11:00)', 'Morning batch (7:30 to 11:00)'),
         ('Afternoon batch (1:30 to 4:00)', 'Afternoon batch (1:30 to 4:00)'),

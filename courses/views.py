@@ -1,5 +1,6 @@
 from datetime import datetime
 from django.contrib import messages
+from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.forms import PasswordChangeForm
 from django.http import HttpRequest
@@ -56,10 +57,11 @@ def about(request):
     )
 
 
-class student_view(CreateView):
+class student_view(SuccessMessageMixin, CreateView):
     model = User
     form_class = StudentForm
     template_name = 'courses/register.html'
+    success_message = "%(username) your account has been created successfully"
 
     def form_valid(self, form):
         user = form.save()
@@ -167,9 +169,11 @@ class book_trial_view(CreateView):
     model = Book_trial
     form_class = BookTrialForm
     template_name = 'courses/book_trial.html'
+    success_message = "%(name) we got your request, we inform you soon."
 
     def form_valid(self, form):
         user = form.save()
         user.save()
         user = form.cleaned_data.get('name')
-        return redirect('home')
+        return redirect('login')
+
