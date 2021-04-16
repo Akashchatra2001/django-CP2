@@ -128,7 +128,7 @@ class CourseEnrollView(CreateView):
         enroll.student = Student.objects.get(user= self.request.user)
         enroll.save()
         return redirect('payment')
-        
+        enroll.save()
 
 def payment(request):
     if request.method == "POST":
